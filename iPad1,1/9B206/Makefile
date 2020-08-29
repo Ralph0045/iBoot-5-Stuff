@@ -3,3 +3,5 @@ all:
 	arm-none-eabi-objcopy -O binary prepare_and_jump.o prepare_and_jump.bin
 	arm-none-eabi-gcc payload.c -fpie -W -pedantic -Wno-long-long -Os -L. -nostdlib -emain -march=armv7-a -mthumb -o payload.elf
 	arm-none-eabi-objcopy -O binary payload.elf payload.bin
+	arm-none-eabi-gcc payload_ramdiskH.c -fpie -W -pedantic -Wno-long-long -Os -L. -nostdlib -emain -march=armv7-a -mthumb -o payload_ramdiskH.elf
+	arm-none-eabi-objcopy -O binary payload_ramdiskH.elf payload_ramdiskH.bin
